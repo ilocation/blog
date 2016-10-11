@@ -228,7 +228,7 @@
               
                 
                 <a class="post-title-link" href="/2016/10/11/Ubuntu安装Elasticsearch/" itemprop="url">
-                  Ubuntu安装Elasticsearch
+                  Elasticsearch Ubuntu 实测
                 </a>
               
             
@@ -271,7 +271,9 @@
       
         
           
-            <h4 id="1-安装java"><a href="#1-安装java" class="headerlink" title="1. 安装java"></a>1. 安装java</h4><pre><code>sudo apt-get update
+            <pre><code>Ubuntu 10.6
+Elasticsearch 2.4.1
+</code></pre><h4 id="1-安装java"><a href="#1-安装java" class="headerlink" title="1. 安装java"></a>1. 安装java</h4><pre><code>sudo apt-get update
 sudo apt-get install default-jdk
 </code></pre><h4 id="2-下载elasticsearch"><a href="#2-下载elasticsearch" class="headerlink" title="2. 下载elasticsearch"></a>2. 下载elasticsearch</h4><pre><code>wget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/deb/elasticsearch/2.4.1/elasticsearch-2.4.1.deb
 </code></pre><h4 id="3-安装elasticsearch"><a href="#3-安装elasticsearch" class="headerlink" title="3. 安装elasticsearch"></a>3. 安装elasticsearch</h4><pre><code>sudo dpkg -i elasticsearch-2.4.1.deb
@@ -305,8 +307,12 @@ MAX_LOCKED_MEMORY=unlimited
 </ul>
 <h4 id="7-为elasticsearch安装中文分词插件"><a href="#7-为elasticsearch安装中文分词插件" class="headerlink" title="7. 为elasticsearch安装中文分词插件"></a>7. 为elasticsearch安装中文分词插件</h4><pre><code>稍后...
 </code></pre><h4 id="8-运行elasticsearch"><a href="#8-运行elasticsearch" class="headerlink" title="8. 运行elasticsearch"></a>8. 运行elasticsearch</h4><pre><code>sudo systemctl start elasticsearch
-</code></pre><h4 id="9-实测配置"><a href="#9-实测配置" class="headerlink" title="9. 实测配置"></a>9. 实测配置</h4><pre><code>两台Ubuntu服务器，内存32G，4核CPU
-</code></pre><h4 id="10-实测效果"><a href="#10-实测效果" class="headerlink" title="10. 实测效果"></a>10. 实测效果</h4><pre><code>4300万POI数据，文本搜索200毫秒
+</code></pre><h4 id="9-实测配置"><a href="#9-实测配置" class="headerlink" title="9. 实测配置"></a>9. 实测配置</h4><ul>
+<li>2台Ubuntu服务器，内存32G，4核CPU；</li>
+<li>2台均配置为master node和data node；</li>
+<li>每个node 1个分片，0个副本；</li>
+</ul>
+<h4 id="10-实测效果"><a href="#10-实测效果" class="headerlink" title="10. 实测效果"></a>10. 实测效果</h4><pre><code>4300万POI数据，文本搜索200毫秒
 </code></pre>
           
         
