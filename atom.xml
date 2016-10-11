@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-10-07T12:51:39.000Z</updated>
+  <updated>2016-10-11T13:04:03.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,29 +16,59 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hexo Github搭建博客系统</title>
-    <link href="http://yoursite.com/2016/10/07/hello-world/"/>
-    <id>http://yoursite.com/2016/10/07/hello-world/</id>
-    <published>2016-10-07T10:41:44.000Z</published>
-    <updated>2016-10-07T12:51:39.000Z</updated>
+    <title>Ubuntu安装Elasticsearch</title>
+    <link href="http://yoursite.com/2016/10/11/Ubuntu%E5%AE%89%E8%A3%85Elasticsearch/"/>
+    <id>http://yoursite.com/2016/10/11/Ubuntu安装Elasticsearch/</id>
+    <published>2016-10-11T13:01:05.000Z</published>
+    <updated>2016-10-11T13:04:03.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Hexo <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>是一个简单易用的博客系统。使用Markdown编辑博客，编译生成博客页面。通过Github Pages功能托管，可指定域名。</p>
-<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="创建博客"><a href="#创建博客" class="headerlink" title="创建博客"></a>创建博客</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>详细信息: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="运行Hexo"><a href="#运行Hexo" class="headerlink" title="运行Hexo"></a>运行Hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>详细信息: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="编译博客"><a href="#编译博客" class="headerlink" title="编译博客"></a>编译博客</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>详细信息: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="部署到远程站点"><a href="#部署到远程站点" class="headerlink" title="部署到远程站点"></a>部署到远程站点</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>详细信息: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
+    <content type="html"><![CDATA[<h4 id="1-安装java"><a href="#1-安装java" class="headerlink" title="1. 安装java"></a>1. 安装java</h4><pre><code>sudo apt-get update
+sudo apt-get install default-jdk
+</code></pre><h4 id="2-下载elasticsearch"><a href="#2-下载elasticsearch" class="headerlink" title="2. 下载elasticsearch"></a>2. 下载elasticsearch</h4><pre><code>wget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/deb/elasticsearch/2.4.1/elasticsearch-2.4.1.deb
+</code></pre><h4 id="3-安装elasticsearch"><a href="#3-安装elasticsearch" class="headerlink" title="3. 安装elasticsearch"></a>3. 安装elasticsearch</h4><pre><code>sudo dpkg -i elasticsearch-2.4.1.deb
+</code></pre><p>elasticsearch安装目录 /usr/share/elasticsearch，配置文件目录 /etc/elasticsearch，启动脚本目录 /etc/init.d/elasticsearch</p>
+<h4 id="4-配置elasticsearch为系统服务"><a href="#4-配置elasticsearch为系统服务" class="headerlink" title="4. 配置elasticsearch为系统服务"></a>4. 配置elasticsearch为系统服务</h4><pre><code>sudo systemctl enable elasticsearch.service
+</code></pre><p>elasticsearch将在宿主机开机时自动启动。</p>
+<h4 id="5-几个重要的配置"><a href="#5-几个重要的配置" class="headerlink" title="5. 几个重要的配置"></a>5. 几个重要的配置</h4><ul>
+<li>node.cluster: elasticsearch</li>
+<li>node.name: node-t14</li>
+<li>node.master: true</li>
+<li>node.data: true</li>
+<li>index.number_of_shards: 1</li>
+<li>index.number_of_replicas: 0</li>
+<li>network.host: 192.168.31.14</li>
+<li>discovery.zen.ping.unicast.hosts: [“192.168.31.14”, “192.168.31.13”]</li>
+<li>index.analysis.analyzer.ik.type: “ik”</li>
+</ul>
+<h4 id="6-为elasticsearch分配内存"><a href="#6-为elasticsearch分配内存" class="headerlink" title="6. 为elasticsearch分配内存"></a>6. 为elasticsearch分配内存</h4><ul>
+<li><p>/etc/elasticsearch/elasticsearch.yml</p>
+<pre><code># 初始化时锁定内存
+bootstrap.memory_lock: true
+</code></pre></li>
+<li><p>/etc/default/elasticsearch</p>
+<pre><code># 通常设置为系统内存的1/2
+ES_HEAP_SIZE=16g
+MAX_LOCKED_MEMORY=unlimited
+</code></pre></li>
+<li><p>/usr/lib/systemd/system/elasticsearch.service</p>
+<pre><code>LimitMEMLOCK=infinity
+</code></pre></li>
+</ul>
+<h4 id="7-为elasticsearch安装中文分词插件"><a href="#7-为elasticsearch安装中文分词插件" class="headerlink" title="7. 为elasticsearch安装中文分词插件"></a>7. 为elasticsearch安装中文分词插件</h4><pre><code>稍后...
+</code></pre><h4 id="8-运行elasticsearch"><a href="#8-运行elasticsearch" class="headerlink" title="8. 运行elasticsearch"></a>8. 运行elasticsearch</h4><pre><code>sudo systemctl start elasticsearch
+</code></pre><h4 id="9-实测配置"><a href="#9-实测配置" class="headerlink" title="9. 实测配置"></a>9. 实测配置</h4><pre><code>两台Ubuntu服务器，内存32G，4核CPU
+</code></pre><h4 id="10-实测效果"><a href="#10-实测效果" class="headerlink" title="10. 实测效果"></a>10. 实测效果</h4><pre><code>4300万POI数据，文本搜索200毫秒
+</code></pre>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Hexo &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;是一个简单易用的博客系统。使用Markdown编辑博客，编译生成博客页面。通过Github Pages功能托管，可指定域名。&lt;/p&gt;
+      &lt;h4 id=&quot;1-安装java&quot;&gt;&lt;a href=&quot;#1-安装java&quot; class=&quot;headerlink&quot; title=&quot;1. 安装java&quot;&gt;&lt;/a&gt;1. 安装java&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;sudo apt-get update
+sudo apt-get ins
     
     </summary>
     
+    
+      <category term="elasticsearch" scheme="http://yoursite.com/tags/elasticsearch/"/>
     
   </entry>
   

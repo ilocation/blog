@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="elasticsearch," />
 
 
 
@@ -86,12 +86,22 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="GISpace">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="1. 安装javasudo apt-get update
+sudo apt-get install default-jdk
+2. 下载elasticsearchwget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/deb/elasticsearch/2.4.1/elasticsea">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu安装Elasticsearch">
+<meta property="og:url" content="http://yoursite.com/2016/10/11/Ubuntu安装Elasticsearch/index.html">
 <meta property="og:site_name" content="GISpace">
+<meta property="og:description" content="1. 安装javasudo apt-get update
+sudo apt-get install default-jdk
+2. 下载elasticsearchwget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/deb/elasticsearch/2.4.1/elasticsea">
+<meta property="og:updated_time" content="2016-10-11T13:04:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GISpace">
+<meta name="twitter:title" content="Ubuntu安装Elasticsearch">
+<meta name="twitter:description" content="1. 安装javasudo apt-get update
+sudo apt-get install default-jdk
+2. 下载elasticsearchwget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/deb/elasticsearch/2.4.1/elasticsea">
 
 
 
@@ -112,9 +122,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/10/11/Ubuntu安装Elasticsearch/"/>
 
-  <title> GISpace </title>
+  <title> Ubuntu安装Elasticsearch | GISpace </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -135,9 +145,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -204,9 +212,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -226,10 +234,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/10/11/Ubuntu安装Elasticsearch/" itemprop="url">
-                  Ubuntu安装Elasticsearch
-                </a>
+                Ubuntu安装Elasticsearch
               
             
           </h1>
@@ -269,9 +274,7 @@
       
 
       
-        
-          
-            <h4 id="1-安装java"><a href="#1-安装java" class="headerlink" title="1. 安装java"></a>1. 安装java</h4><pre><code>sudo apt-get update
+        <h4 id="1-安装java"><a href="#1-安装java" class="headerlink" title="1. 安装java"></a>1. 安装java</h4><pre><code>sudo apt-get update
 sudo apt-get install default-jdk
 </code></pre><h4 id="2-下载elasticsearch"><a href="#2-下载elasticsearch" class="headerlink" title="2. 下载elasticsearch"></a>2. 下载elasticsearch</h4><pre><code>wget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/deb/elasticsearch/2.4.1/elasticsearch-2.4.1.deb
 </code></pre><h4 id="3-安装elasticsearch"><a href="#3-安装elasticsearch" class="headerlink" title="3. 安装elasticsearch"></a>3. 安装elasticsearch</h4><pre><code>sudo dpkg -i elasticsearch-2.4.1.deb
@@ -308,36 +311,45 @@ MAX_LOCKED_MEMORY=unlimited
 </code></pre><h4 id="9-实测配置"><a href="#9-实测配置" class="headerlink" title="9. 实测配置"></a>9. 实测配置</h4><pre><code>两台Ubuntu服务器，内存32G，4核CPU
 </code></pre><h4 id="10-实测效果"><a href="#10-实测效果" class="headerlink" title="10. 实测效果"></a>10. 实测效果</h4><pre><code>4300万POI数据，文本搜索200毫秒
 </code></pre>
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/elasticsearch/" rel="tag">#elasticsearch</a>
+          
+        </div>
       
 
       
+
       
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -345,6 +357,10 @@ MAX_LOCKED_MEMORY=unlimited
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -364,8 +380,17 @@ MAX_LOCKED_MEMORY=unlimited
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/gispace.png"
@@ -415,6 +440,17 @@ MAX_LOCKED_MEMORY=unlimited
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-安装java"><span class="nav-number">1.</span> <span class="nav-text">1. 安装java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-下载elasticsearch"><span class="nav-number">2.</span> <span class="nav-text">2. 下载elasticsearch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-安装elasticsearch"><span class="nav-number">3.</span> <span class="nav-text">3. 安装elasticsearch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-配置elasticsearch为系统服务"><span class="nav-number">4.</span> <span class="nav-text">4. 配置elasticsearch为系统服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-几个重要的配置"><span class="nav-number">5.</span> <span class="nav-text">5. 几个重要的配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-为elasticsearch分配内存"><span class="nav-number">6.</span> <span class="nav-text">6. 为elasticsearch分配内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-为elasticsearch安装中文分词插件"><span class="nav-number">7.</span> <span class="nav-text">7. 为elasticsearch安装中文分词插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-运行elasticsearch"><span class="nav-number">8.</span> <span class="nav-text">8. 运行elasticsearch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-实测配置"><span class="nav-number">9.</span> <span class="nav-text">9. 实测配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-实测效果"><span class="nav-number">10.</span> <span class="nav-text">10. 实测效果</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -511,6 +547,10 @@ MAX_LOCKED_MEMORY=unlimited
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
