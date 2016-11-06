@@ -73,6 +73,8 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="GISpace" type="application/atom+xml" />
 
@@ -86,28 +88,39 @@
 
 
 
-<meta name="description" content="Ubuntu 10.6
-Elasticsearch 2.4.1
-1. 安装javasudo apt-get update
-sudo apt-get install default-jdk
-2. 下载elasticsearchwget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/de">
+<meta name="description" content="WebStorm内置了对SCSS文件的Watcher。但是要自动编译SCSS，还需要安装SASS。
+安装SASS需要Ruby环境，Mac环境已经预装Ruby，执行如下命令可查看Ruby版本。
+ruby -v
+执行如下命令安装SASS。
+sudo gem install sass
+sass -v
+如果看到SASS版本号，则说明安装成功。
+在WebStorm中新建一个SCSS文件，则会自动提示添加SC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Elasticsearch Ubuntu 实测">
-<meta property="og:url" content="http://yoursite.com/2016/10/11/Ubuntu安装Elasticsearch/index.html">
+<meta property="og:title" content="Mac环境WebStorm配置SCSS自动编译">
+<meta property="og:url" content="http://yoursite.com/2016/11/06/WebStorm配置SCSS-Watcher/index.html">
 <meta property="og:site_name" content="GISpace">
-<meta property="og:description" content="Ubuntu 10.6
-Elasticsearch 2.4.1
-1. 安装javasudo apt-get update
-sudo apt-get install default-jdk
-2. 下载elasticsearchwget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/de">
-<meta property="og:updated_time" content="2016-11-06T02:19:45.000Z">
+<meta property="og:description" content="WebStorm内置了对SCSS文件的Watcher。但是要自动编译SCSS，还需要安装SASS。
+安装SASS需要Ruby环境，Mac环境已经预装Ruby，执行如下命令可查看Ruby版本。
+ruby -v
+执行如下命令安装SASS。
+sudo gem install sass
+sass -v
+如果看到SASS版本号，则说明安装成功。
+在WebStorm中新建一个SCSS文件，则会自动提示添加SC">
+<meta property="og:image" content="http://yoursite.com/images/blog/watcher.png">
+<meta property="og:updated_time" content="2016-11-06T02:18:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Elasticsearch Ubuntu 实测">
-<meta name="twitter:description" content="Ubuntu 10.6
-Elasticsearch 2.4.1
-1. 安装javasudo apt-get update
-sudo apt-get install default-jdk
-2. 下载elasticsearchwget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/de">
+<meta name="twitter:title" content="Mac环境WebStorm配置SCSS自动编译">
+<meta name="twitter:description" content="WebStorm内置了对SCSS文件的Watcher。但是要自动编译SCSS，还需要安装SASS。
+安装SASS需要Ruby环境，Mac环境已经预装Ruby，执行如下命令可查看Ruby版本。
+ruby -v
+执行如下命令安装SASS。
+sudo gem install sass
+sass -v
+如果看到SASS版本号，则说明安装成功。
+在WebStorm中新建一个SCSS文件，则会自动提示添加SC">
+<meta name="twitter:image" content="http://yoursite.com/images/blog/watcher.png">
 
 
 
@@ -128,9 +141,9 @@ sudo apt-get install default-jdk
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/10/11/Ubuntu安装Elasticsearch/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/06/WebStorm配置SCSS-Watcher/"/>
 
-  <title> Elasticsearch Ubuntu 实测 | GISpace </title>
+  <title> Mac环境WebStorm配置SCSS自动编译 | GISpace </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -240,7 +253,7 @@ sudo apt-get install default-jdk
             
             
               
-                Elasticsearch Ubuntu 实测
+                Mac环境WebStorm配置SCSS自动编译
               
             
           </h1>
@@ -252,8 +265,8 @@ sudo apt-get install default-jdk
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-11T21:01:05+08:00" content="2016-10-11">
-              2016-10-11
+            <time itemprop="dateCreated" datetime="2016-11-06T10:02:43+08:00" content="2016-11-06">
+              2016-11-06
             </time>
           </span>
 
@@ -280,48 +293,17 @@ sudo apt-get install default-jdk
       
 
       
-        <pre><code>Ubuntu 10.6
-Elasticsearch 2.4.1
-</code></pre><h4 id="1-安装java"><a href="#1-安装java" class="headerlink" title="1. 安装java"></a>1. 安装java</h4><pre><code>sudo apt-get update
-sudo apt-get install default-jdk
-</code></pre><h4 id="2-下载elasticsearch"><a href="#2-下载elasticsearch" class="headerlink" title="2. 下载elasticsearch"></a>2. 下载elasticsearch</h4><pre><code>wget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/deb/elasticsearch/2.4.1/elasticsearch-2.4.1.deb
-</code></pre><h4 id="3-安装elasticsearch"><a href="#3-安装elasticsearch" class="headerlink" title="3. 安装elasticsearch"></a>3. 安装elasticsearch</h4><pre><code>sudo dpkg -i elasticsearch-2.4.1.deb
-</code></pre><p>elasticsearch安装目录 /usr/share/elasticsearch，配置文件目录 /etc/elasticsearch，启动脚本目录 /etc/init.d/elasticsearch</p>
-<h4 id="4-配置elasticsearch为系统服务"><a href="#4-配置elasticsearch为系统服务" class="headerlink" title="4. 配置elasticsearch为系统服务"></a>4. 配置elasticsearch为系统服务</h4><pre><code>sudo systemctl enable elasticsearch.service
-</code></pre><p>elasticsearch将在宿主机开机时自动启动。</p>
-<h4 id="5-几个重要的配置"><a href="#5-几个重要的配置" class="headerlink" title="5. 几个重要的配置"></a>5. 几个重要的配置</h4><ul>
-<li>node.cluster: elasticsearch</li>
-<li>node.name: node-t14</li>
-<li>node.master: true</li>
-<li>node.data: true</li>
-<li>index.number_of_shards: 1</li>
-<li>index.number_of_replicas: 0</li>
-<li>network.host: 192.168.31.14</li>
-<li>discovery.zen.ping.unicast.hosts: [“192.168.31.14”, “192.168.31.13”]</li>
-<li>index.analysis.analyzer.ik.type: “ik”</li>
-</ul>
-<h4 id="6-为elasticsearch分配内存"><a href="#6-为elasticsearch分配内存" class="headerlink" title="6. 为elasticsearch分配内存"></a>6. 为elasticsearch分配内存</h4><ul>
-<li><p>/etc/elasticsearch/elasticsearch.yml</p>
-<pre><code># 初始化时锁定内存
-bootstrap.memory_lock: true
-</code></pre></li>
-<li><p>/etc/default/elasticsearch</p>
-<pre><code># 通常设置为系统内存的1/2
-ES_HEAP_SIZE=16g
-MAX_LOCKED_MEMORY=unlimited
-</code></pre></li>
-<li><p>/usr/lib/systemd/system/elasticsearch.service</p>
-<pre><code>LimitMEMLOCK=infinity
-</code></pre></li>
-</ul>
-<h4 id="7-为elasticsearch安装中文分词插件"><a href="#7-为elasticsearch安装中文分词插件" class="headerlink" title="7. 为elasticsearch安装中文分词插件"></a>7. 为elasticsearch安装中文分词插件</h4><pre><code>稍后...
-</code></pre><h4 id="8-运行elasticsearch"><a href="#8-运行elasticsearch" class="headerlink" title="8. 运行elasticsearch"></a>8. 运行elasticsearch</h4><pre><code>sudo systemctl start elasticsearch
-</code></pre><h4 id="9-实测配置"><a href="#9-实测配置" class="headerlink" title="9. 实测配置"></a>9. 实测配置</h4><ul>
-<li>2台Ubuntu服务器，内存32G，4核CPU；</li>
-<li>2台均配置为master node和data node；</li>
-<li>每个node 4个分片，0个副本；</li>
-</ul>
-<h4 id="10-实测效果"><a href="#10-实测效果" class="headerlink" title="10. 实测效果"></a>10. 实测效果</h4><pre><code>4300万POI数据，文本搜索100毫秒
+        <p>WebStorm内置了对SCSS文件的Watcher。但是要自动编译SCSS，还需要安装SASS。</p>
+<p>安装SASS需要Ruby环境，Mac环境已经预装Ruby，执行如下命令可查看Ruby版本。</p>
+<pre><code>ruby -v
+</code></pre><p>执行如下命令安装SASS。</p>
+<pre><code>sudo gem install sass
+sass -v
+</code></pre><p>如果看到SASS版本号，则说明安装成功。</p>
+<p>在WebStorm中新建一个SCSS文件，则会自动提示添加SCSS Watcher，点击提示进入下图所示对话框。</p>
+<p><img src="/images/blog/watcher.png" alt=""></p>
+<p>在Program中填写如下内容，保存即可。</p>
+<pre><code>/usr/local/bin/sass
 </code></pre>
       
     </div>
@@ -347,13 +329,13 @@ MAX_LOCKED_MEMORY=unlimited
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/10/11/Ubuntu安装Elasticsearch/" rel="next" title="Elasticsearch Ubuntu 实测">
+                <i class="fa fa-chevron-left"></i> Elasticsearch Ubuntu 实测
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/06/WebStorm配置SCSS-Watcher/" rel="prev" title="Mac环境WebStorm配置SCSS自动编译">
-                Mac环境WebStorm配置SCSS自动编译 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -460,7 +442,7 @@ MAX_LOCKED_MEMORY=unlimited
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-安装java"><span class="nav-number">1.</span> <span class="nav-text">1. 安装java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-下载elasticsearch"><span class="nav-number">2.</span> <span class="nav-text">2. 下载elasticsearch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-安装elasticsearch"><span class="nav-number">3.</span> <span class="nav-text">3. 安装elasticsearch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-配置elasticsearch为系统服务"><span class="nav-number">4.</span> <span class="nav-text">4. 配置elasticsearch为系统服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-几个重要的配置"><span class="nav-number">5.</span> <span class="nav-text">5. 几个重要的配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-为elasticsearch分配内存"><span class="nav-number">6.</span> <span class="nav-text">6. 为elasticsearch分配内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-为elasticsearch安装中文分词插件"><span class="nav-number">7.</span> <span class="nav-text">7. 为elasticsearch安装中文分词插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-运行elasticsearch"><span class="nav-number">8.</span> <span class="nav-text">8. 运行elasticsearch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-实测配置"><span class="nav-number">9.</span> <span class="nav-text">9. 实测配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-实测效果"><span class="nav-number">10.</span> <span class="nav-text">10. 实测效果</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>

@@ -227,6 +227,110 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/06/WebStorm配置SCSS-Watcher/" itemprop="url">
+                  Mac环境WebStorm配置SCSS自动编译
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-06T10:02:43+08:00" content="2016-11-06">
+              2016-11-06
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>WebStorm内置了对SCSS文件的Watcher。但是要自动编译SCSS，还需要安装SASS。</p>
+<p>安装SASS需要Ruby环境，Mac环境已经预装Ruby，执行如下命令可查看Ruby版本。</p>
+<pre><code>ruby -v
+</code></pre><p>执行如下命令安装SASS。</p>
+<pre><code>sudo gem install sass
+sass -v
+</code></pre><p>如果看到SASS版本号，则说明安装成功。</p>
+<p>在WebStorm中新建一个SCSS文件，则会自动提示添加SCSS Watcher，点击提示进入下图所示对话框。</p>
+<p><img src="/images/blog/watcher.png" alt=""></p>
+<p>在Program中填写如下内容，保存即可。</p>
+<pre><code>/usr/local/bin/sass
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/11/Ubuntu安装Elasticsearch/" itemprop="url">
                   Elasticsearch Ubuntu 实测
                 </a>
@@ -310,9 +414,9 @@ MAX_LOCKED_MEMORY=unlimited
 </code></pre><h4 id="9-实测配置"><a href="#9-实测配置" class="headerlink" title="9. 实测配置"></a>9. 实测配置</h4><ul>
 <li>2台Ubuntu服务器，内存32G，4核CPU；</li>
 <li>2台均配置为master node和data node；</li>
-<li>每个node 1个分片，0个副本；</li>
+<li>每个node 4个分片，0个副本；</li>
 </ul>
-<h4 id="10-实测效果"><a href="#10-实测效果" class="headerlink" title="10. 实测效果"></a>10. 实测效果</h4><pre><code>4300万POI数据，文本搜索200毫秒
+<h4 id="10-实测效果"><a href="#10-实测效果" class="headerlink" title="10. 实测效果"></a>10. 实测效果</h4><pre><code>4300万POI数据，文本搜索100毫秒
 </code></pre>
           
         
@@ -382,20 +486,13 @@ MAX_LOCKED_MEMORY=unlimited
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           
 
-          
-            <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">标签</span>
-              
-            </div>
           
 
         </nav>
